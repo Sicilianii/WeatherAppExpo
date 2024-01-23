@@ -22,7 +22,7 @@ export default function AirConditions() {
         const options = {
             method: 'GET',
         };
-        fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Мурманск?unitGroup=metric&key=XPFZ5WWF49NWAM738ADUNQ4LG&contentType=json')
+        fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Мурманск?unitGroup=metric&key="< YOUR KEY >"&contentType=json')
             .then(response => response.json())
             .then(data => {
                 setWeatherDATA(data);
