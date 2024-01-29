@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {SafeAreaView, Text, View, ScrollView, Button} from "react-native";
+import {SafeAreaView, Text, View, ScrollView, Button, TouchableOpacity} from "react-native";
 
 import Clouds from "../assets/icons_weather/Clouds";
 import CloudAndSun from "../assets/icons_weather/Cloud_and_Sun";
@@ -27,6 +27,8 @@ import UvIndex from "../assets/icons_weather/UV_Index";
 import SVG_ICON from "../components/Ret_SVG_icons";
 import {useRouter} from "expo-router";
 import Loading from "./loading";
+import Loop from "../assets/icons_weather/Loop";
+import ArrowSVG from "../assets/images/Arrow";
 
 
 
@@ -47,7 +49,7 @@ export default function Home() {
         const options = {
             method: 'GET',
         };
-        fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Мурманск?unitGroup=metric&key="< YOUR KEY >"&contentType=json')
+        fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Мурманск?unitGroup=metric&key=XPFZ5WWF49NWAM738ADUNQ4LG&contentType=json')
             .then(response => response.json())
             .then(data => {
                 setWeatherDATA(data);
@@ -60,7 +62,12 @@ export default function Home() {
     return (STORE == undefined) ? <Loading /> :
                 <SafeAreaView className={'h-full w-full bg-slate-950'}>
                     <ScrollView>
+
                         <View className={'flex items-center justify-start w-full h-full p-5 box-border'}>
+                            <TouchableOpacity  className={'absolute left-5 top-5'} onPress={ () => { router.push('/SearchCity')}}>
+                                <Loop width="50" height="50"/>
+                            </TouchableOpacity>
+
                             <Text className={"font-['Helvetica'] text-slate-200 text-5xl mt-14 font-semibold"}> { (RENDER(STORE.address)).replace(/"/g, '') } </Text>
                             <Text className={"font-['Helvetica'] text-slate-400 mt-2 text-lg"}>Precipitation: { Math.round(RENDER(STORE.days[0].precip) * 100) } %</Text>
                             <SVG_ICON className={'mt-5'} width="150" height="150"

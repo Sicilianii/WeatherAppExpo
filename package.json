@@ -43,5 +43,6 @@
     "react-test-renderer": "18.2.0",
     "typescript": "^5.1.3"
   },
-  "private": true
+  "private": true,
+  "homepage": "https://Sicilianii.github.io/WeatherAppExpo"
 }

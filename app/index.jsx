@@ -15,7 +15,7 @@ export default function Index() {
                     <Image className={'w-44 h-44'} source={require('../assets/images/umbrela.png')}  />
                     <Text className="mt-14 text-6xl text-slate-200 font-semibold font-['Helvetica']">Breeze</Text>
                     <Text className="mt-2 text-2xl font-extralight text-slate-400 font-['Helvetica']">Weather App</Text>
-                        <TouchableOpacity  className={'mt-20'} onPress={ () => { router.push('/Home')}}>
+                        <TouchableOpacity  className={'mt-20'} onPress={ () => { router.push('/home')}}>
                             <ArrowSVG />
                         </TouchableOpacity>
                 </View>
